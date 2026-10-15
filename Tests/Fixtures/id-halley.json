@@ -1,0 +1,35 @@
+{
+  "Halley": {
+    "citation": null,
+    "disambiguation_list": [
+      {
+        "citation": null,
+        "group": "Comets",
+        "name": "Halley",
+        "packed_primary_provisional_designation": "PG82Q010",
+        "permid": "1P",
+        "unpacked_primary_provisional_designation": "P/1682 Q1"
+      },
+      {
+        "citation": "(2688) Halley<br><br>Named in memory of the great English astronomer Edmond Halley (1656-1742) on the occasion of the recovery, in October 1982, of the comet that bears his name.",
+        "group": "Minor Planets",
+        "name": "Halley",
+        "packed_primary_provisional_designation": "J82H01G",
+        "permid": "2688",
+        "unpacked_primary_provisional_designation": "1982 HG1"
+      }
+    ],
+    "dual_status_info": null,
+    "found": 2,
+    "iau_designation": null,
+    "name": null,
+    "object_type": null,
+    "orbfit_name": null,
+    "packed_permid": null,
+    "packed_primary_provisional_designation": null,
+    "packed_secondary_provisional_designations": null,
+    "permid": null,
+    "unpacked_primary_provisional_designation": null,
+    "unpacked_secondary_provisional_designations": null
+  }
+}
