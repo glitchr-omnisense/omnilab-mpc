@@ -1,6 +1,6 @@
 # omnilab/mpc
 
-The IAU's Minor Planet Center for [omniscient/omnilab](https://github.com/glitchr-studio/omnilab): a
+The IAU's Minor Planet Center for [omnisense/omnilab](https://github.com/glitchr-omnisense/omnilab): a
 minor planet, a comet or a natural satellite by its number, its designation (provisional, packed
 or not, primary or secondary) or its name - its designations, name and naming citation, its
 orbit as the MPC computes it (the osculating elements with their uncertainties at their epoch,
