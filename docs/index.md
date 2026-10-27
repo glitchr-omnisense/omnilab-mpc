@@ -1,5 +1,11 @@
 # omnilab/mpc
 
+The IAU's Minor Planet Center, through its REST APIs (`https://data.minorplanetcenter.net/api/`),
+for [omnisense/omnilab](https://github.com/glitchr-omnisense/omnilab): minor planets, comets and
+natural satellites by number, designation or name - designations, naming citation, orbit with its
+uncertainties, absolute magnitude, observations and arc - as entities; a search of names; outside
+the contract, their latest observations. No key.
+
 ## Installation
 
 ```sh
@@ -17,6 +23,48 @@ $mpc = (new MpcSourceFactory($httpClient))->create([
 
 With the Symfony bundle, the factory is registered as `mpc` when the bundle knows it; otherwise
 register `MpcSourceFactory` as a service (it is autoconfigured as a `SourceFactoryInterface`).
+
+## Credentials
+
+None: the MPC's APIs take no key and no account. Give `mailto`, the address the MPC writes to
+before it blocks a caller.
+
+## Options
+
+The factory's options, with the defaults it applies (`MpcSourceFactory`):
+
+| Option | Type | Default | Required | Effect |
+|---|---|---|---|---|
+| `mailto` | `?string` | null | no | a contact address, in the User-Agent: whom the MPC writes to before it blocks a caller |
+| `user_agent` | `?string` | null | no | the whole User-Agent, in place of the one made from `mailto` |
+| `throttle` | `float` | `0` | no | seconds left between two calls: the MPC publishes no rate |
+| `base_uri` | `string` | `https://data.minorplanetcenter.net/api/` | no | the API the source calls |
+
+## Capabilities
+
+`capabilities()` answers `entity`, `search`, `cross_references`; an operation it does not answer throws `NotSupportedException` before any call.
+
+| Capability | Supported | |
+|---|---|---|
+| `entity` | yes | a number, a designation (packed or not, a comet's), a name, a `mpc` or `jpl.sbdb` identifier, its MPC page: two calls (the identifier, the orbit); a name two bodies share is null; another base refused before any call |
+| `search` | yes | the names that hold the text, the closest first (the MPC's similarity), 100 a page at most, with a `total`; a domain other than astronomy answers an empty page |
+| `series` | no |  |
+| `products` | no |  |
+| `occurrences` | no | an observation has an observatory code, not a place: `observations()`, outside the contract |
+| `datasets` | no |  |
+| `jobs` | no |  |
+| `open` | no |  |
+| `structure` | no |  |
+| `cross_references` | yes | the `jpl.sbdb` identifier of the same value (JPL names the body the same), and its primary designation |
+| `forecast` | no |  |
+| `historical` | no |  |
+| `area` | no |  |
+| `station` | no |  |
+| `cloud_cover` | no |  |
+
+Outside the contract, on `Omnilab\Mpc\MpcSource`: `observations(Identifier|string $id, int $limit
+= 20): list<Observation>` - a body's latest observations, 1,000 at most
+([below](#observations-outside-the-contract)).
 
 ## Which API
 
@@ -94,6 +142,60 @@ codes (a code is not resolved to its place), the MPECs, the orbit's covariance a
 state, the non-gravitational parameters' values, the natural satellites' orbits (the Identifier
 reads them; `get-orb` was not asked one), WAMO, the submission status and the summary counts.
 
+## Example
+
+```php
+<?php
+
+require __DIR__.'/vendor/autoload.php';
+
+use Omnilab\Mpc\MpcSourceFactory;
+use Omnilab\Source\Query;
+use Symfony\Component\HttpClient\HttpClient;
+
+$mpc = (new MpcSourceFactory(HttpClient::create(['timeout' => 60])))->create(['mailto' => 'you@example.org']);
+
+$apophis = $mpc->entity('Apophis');
+echo $apophis->label, ' (', $apophis->id, '): a = ', $apophis->property('semi_major_axis'), ', e = ', $apophis->value('eccentricity'), ', H = ', $apophis->value('absolute_magnitude'), "\n";
+var_dump($mpc->entity('Halley'));   // two bodies bear the name: neither
+
+foreach ($mpc->observations('2024 YR4', 2) as $o) {
+    printf("  %s  RA %.5f Dec %.5f  %s at %s (%s)\n", $o->time->format('Y-m-d H:i:s'), $o->ra, $o->dec, $o->magnitude ?? '-', $o->observatory, $o->method);
+}
+$page = $mpc->search(new Query('eros', limit: 3));
+printf("%d names hold \"eros\"; the first: %s\n", $page->total, $page->first()->label);
+```
+
+```
+(99942) Apophis (mpc:99942): a = 0.9223592225 ± 0.0000000003 au, e = 0.1911492198 ± 0.0000000124, H = 18.999 mag
+NULL
+  2026-02-26 21:11:58  RA 216.52967 Dec -18.32644  30.3 at 274 (space-based)
+  2026-02-26 19:51:47  RA 216.53337 Dec -18.32676  29.9 at 274 (space-based)
+13 names hold "eros"; the first: (433) Eros
+```
+
+(as answered on 2026-10-27: six calls; 2024 YR4's latest observations are the James Webb Space
+Telescope's, observatory `274`; the elements are `Quantity`s with their uncertainties)
+
+```yaml
+# config/packages/omnilab.yaml
+omnilab:
+    sources:
+        mpc: { factory: mpc, options: { mailto: '%env(OMNILAB_MAILTO)%' } }
+```
+
+`observations()` is a method of `MpcSource`, not of the interface the bundle injects: check the
+instance before calling it.
+
+## Errors
+
+Every call goes through `HttpSource`: a 404 or a 410 (and a 204) is null - an empty page for a list -; a 429 is a `RateLimitedException` (`retryAfter` from `Retry-After`); a 5xx, a time-out or a host that does not answer an `UnavailableException`; any other 4xx a `ProviderException` with its `status` and what the service said; an answer that is not JSON a `ProviderException`, a web page answered for JSON an `UnavailableException`.
+
+The MPC's own: its APIs take a JSON body on a GET (a POST answers 405); a body it cannot read is
+its 400 with its schema, a `ProviderException`. A name nobody has (`found: 0`) or two bodies share
+(`found: 2`) is null. Before any call: an identifier of another base (`wikidata:...`,
+`simbad:...`, `CHEBI:...`) given to `entity()` or `observations()` (`NotSupportedException`).
+
 ## Verified, and not
 
 Against the real service on 2026-10-15: Eros by its number and name (two calls, 1.6 s), Apophis by
@@ -104,5 +206,19 @@ observations of 2024 YR4 (JWST, 2026-02-26), Apophis (7.4 s) and Eros (14.5 s, 1
 observations); `get-orb` answered by a POST: 405; the Designation Identifier given a bare string:
 400 with its schema. The fixtures in `Tests/Fixtures/` are its answers.
 
+Again on 2026-10-27: Apophis by its name, `Halley` null, 2024 YR4's latest observations (JWST),
+the search for `eros` (13 names; the example above).
+
 Not verified: a natural satellite or an interstellar object; a 429 (no rate published, none met);
 the Identifier's other comparison (`%`); a mirror (`base_uri`).
+
+## Responsibility
+
+This package is an independent, unofficial client: it is not affiliated with, endorsed by or
+sponsored by the Minor Planet Center, the IAU, the Center for Astrophysics | Harvard & Smithsonian
+or NASA. The MPC publishes no terms of use nor rate for its APIs; credit the Minor Planet Center
+as the source, keep the observers' and programs' credits the observations carry, and ask the
+observations sparingly, as the README's
+[Terms of use](https://github.com/glitchr-omnisense/omnilab-mpc#terms-of-use) says. Whoever runs
+the package is responsible for any use made of what it returns: see the README's
+[Responsibility](https://github.com/glitchr-omnisense/omnilab-mpc#responsibility) section.
