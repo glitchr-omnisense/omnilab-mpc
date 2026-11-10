@@ -1,0 +1,439 @@
+parameters:
+	ignoreErrors:
+		-
+			message: '#^Argument of an invalid type mixed supplied for foreach, only iterables are supported\.$#'
+			identifier: foreach.nonIterable
+			count: 1
+			path: MpcSource.php
+
+		-
+			message: '#^Cannot access offset ''Earth''\|''Jupiter''\|''Mars''\|''Venus'' on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 1
+			path: MpcSource.php
+
+		-
+			message: '#^Cannot access offset ''G'' on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 1
+			path: MpcSource.php
+
+		-
+			message: '#^Cannot access offset ''H'' on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 1
+			path: MpcSource.php
+
+		-
+			message: '#^Cannot access offset ''OBS80'' on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 1
+			path: MpcSource.php
+
+		-
+			message: '#^Cannot access offset ''U_param'' on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 1
+			path: MpcSource.php
+
+		-
+			message: '#^Cannot access offset ''arc_length_total'' on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 1
+			path: MpcSource.php
+
+		-
+			message: '#^Cannot access offset ''citation'' on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 1
+			path: MpcSource.php
+
+		-
+			message: '#^Cannot access offset ''coefficient_names'' on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 1
+			path: MpcSource.php
+
+		-
+			message: '#^Cannot access offset ''coefficient_uncertainties'' on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 1
+			path: MpcSource.php
+
+		-
+			message: '#^Cannot access offset ''coefficient_values'' on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 1
+			path: MpcSource.php
+
+		-
+			message: '#^Cannot access offset ''disambiguation_list'' on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 1
+			path: MpcSource.php
+
+		-
+			message: '#^Cannot access offset ''epoch'' on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 1
+			path: MpcSource.php
+
+		-
+			message: '#^Cannot access offset ''fitting_datetime'' on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 1
+			path: MpcSource.php
+
+		-
+			message: '#^Cannot access offset ''found'' on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 2
+			path: MpcSource.php
+
+		-
+			message: '#^Cannot access offset ''mpc_orb'' on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 1
+			path: MpcSource.php
+
+		-
+			message: '#^Cannot access offset ''name'' on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 1
+			path: MpcSource.php
+
+		-
+			message: '#^Cannot access offset ''nobs_radar'' on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 1
+			path: MpcSource.php
+
+		-
+			message: '#^Cannot access offset ''nobs_total'' on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 1
+			path: MpcSource.php
+
+		-
+			message: '#^Cannot access offset ''nobs_total_sel'' on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 1
+			path: MpcSource.php
+
+		-
+			message: '#^Cannot access offset ''non_gravs'' on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 1
+			path: MpcSource.php
+
+		-
+			message: '#^Cannot access offset ''nopp'' on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 1
+			path: MpcSource.php
+
+		-
+			message: '#^Cannot access offset ''normalized_RMS'' on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 1
+			path: MpcSource.php
+
+		-
+			message: '#^Cannot access offset ''object_type_str'' on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 1
+			path: MpcSource.php
+
+		-
+			message: '#^Cannot access offset ''orbit_quality'' on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 1
+			path: MpcSource.php
+
+		-
+			message: '#^Cannot access offset ''orbit_type_str'' on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 1
+			path: MpcSource.php
+
+		-
+			message: '#^Cannot access offset ''period'' on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 1
+			path: MpcSource.php
+
+		-
+			message: '#^Cannot access offset ''permid'' on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 1
+			path: MpcSource.php
+
+		-
+			message: '#^Cannot access offset ''timeform'' on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 1
+			path: MpcSource.php
+
+		-
+			message: '#^Cannot access offset ''unpacked_primary_provisional_designation'' on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 1
+			path: MpcSource.php
+
+		-
+			message: '#^Cannot access offset ''unpacked_secondary_provisional_designations'' on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 1
+			path: MpcSource.php
+
+		-
+			message: '#^Cannot access offset 0 on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 1
+			path: MpcSource.php
+
+		-
+			message: '#^Cannot access offset mixed on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 2
+			path: MpcSource.php
+
+		-
+			message: '#^Cannot cast mixed to int\.$#'
+			identifier: cast.int
+			count: 3
+			path: MpcSource.php
+
+		-
+			message: '#^Cannot cast mixed to string\.$#'
+			identifier: cast.string
+			count: 1
+			path: MpcSource.php
+
+		-
+			message: '#^Method Omnilab\\Mpc\\MpcSource\:\:lookup\(\) should return array\<string, mixed\>\|null but returns array\<mixed\>\|null\.$#'
+			identifier: return.type
+			count: 1
+			path: MpcSource.php
+
+		-
+			message: '#^Method Omnilab\\Mpc\\MpcSource\:\:mjd\(\) never returns null so it can be removed from the return type\.$#'
+			identifier: return.unusedType
+			count: 1
+			path: MpcSource.php
+
+		-
+			message: '#^Offset 0 might not exist on array\|null\.$#'
+			identifier: offsetAccess.notFound
+			count: 1
+			path: MpcSource.php
+
+		-
+			message: '#^Parameter \#1 \$array of function array_slice expects array, mixed given\.$#'
+			identifier: argument.type
+			count: 1
+			path: MpcSource.php
+
+		-
+			message: '#^Parameter \#1 \$record of method Omnilab\\Mpc\\MpcSource\:\:toEntity\(\) expects array\<string, mixed\>, array\<mixed, mixed\> given\.$#'
+			identifier: argument.type
+			count: 1
+			path: MpcSource.php
+
+		-
+			message: '#^Parameter \#1 \$text of static method Omnilab\\Source\\HttpSource\:\:text\(\) expects string\|null, mixed given\.$#'
+			identifier: argument.type
+			count: 10
+			path: MpcSource.php
+
+		-
+			message: '#^Parameter \#1 \$time of static method Omnilab\\Source\\HttpSource\:\:time\(\) expects string\|null, mixed given\.$#'
+			identifier: argument.type
+			count: 1
+			path: MpcSource.php
+
+		-
+			message: '#^Parameter \#1 \$value of function count expects array\|Countable, mixed given\.$#'
+			identifier: argument.type
+			count: 1
+			path: MpcSource.php
+
+		-
+			message: '#^Parameter \#2 \$orbit of method Omnilab\\Mpc\\MpcSource\:\:toEntity\(\) expects array\<string, mixed\>\|null, array\<mixed, mixed\>\|null given\.$#'
+			identifier: argument.type
+			count: 1
+			path: MpcSource.php
+
+		-
+			message: '#^Parameter \#3 \$value of class Omnilab\\Model\\Property constructor expects bool\|float\|int\|Omnilab\\Model\\Quantity\|string, mixed given\.$#'
+			identifier: argument.type
+			count: 1
+			path: MpcSource.php
+
+		-
+			message: '#^Possibly invalid array key type mixed\.$#'
+			identifier: offsetAccess.invalidOffset
+			count: 1
+			path: MpcSource.php
+
+		-
+			message: '#^Cannot cast mixed to float\.$#'
+			identifier: cast.double
+			count: 1
+			path: MpcSourceFactory.php
+
+		-
+			message: '#^Cannot cast mixed to string\.$#'
+			identifier: cast.string
+			count: 1
+			path: MpcSourceFactory.php
+
+		-
+			message: '#^Cannot access offset ''desig'' on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 1
+			path: Tests/MpcSourceTest.php
+
+		-
+			message: '#^Cannot access offset ''desigs'' on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 1
+			path: Tests/MpcSourceTest.php
+
+		-
+			message: '#^Cannot access offset ''ids'' on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 2
+			path: Tests/MpcSourceTest.php
+
+		-
+			message: '#^Cannot access offset 0 on mixed\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 3
+			path: Tests/MpcSourceTest.php
+
+		-
+			message: '#^Cannot access property \$band on Omnilab\\Mpc\\Observation\|null\.$#'
+			identifier: property.nonObject
+			count: 1
+			path: Tests/MpcSourceTest.php
+
+		-
+			message: '#^Cannot access property \$description on Omnilab\\Model\\Entity\|null\.$#'
+			identifier: property.nonObject
+			count: 1
+			path: Tests/MpcSourceTest.php
+
+		-
+			message: '#^Cannot access property \$domain on Omnilab\\Model\\Entity\|null\.$#'
+			identifier: property.nonObject
+			count: 1
+			path: Tests/MpcSourceTest.php
+
+		-
+			message: '#^Cannot access property \$id on Omnilab\\Model\\Entity\|null\.$#'
+			identifier: property.nonObject
+			count: 2
+			path: Tests/MpcSourceTest.php
+
+		-
+			message: '#^Cannot access property \$kind on Omnilab\\Model\\Entity\|null\.$#'
+			identifier: property.nonObject
+			count: 2
+			path: Tests/MpcSourceTest.php
+
+		-
+			message: '#^Cannot access property \$label on Omnilab\\Model\\Entity\|null\.$#'
+			identifier: property.nonObject
+			count: 4
+			path: Tests/MpcSourceTest.php
+
+		-
+			message: '#^Cannot access property \$method on Omnilab\\Mpc\\Observation\|null\.$#'
+			identifier: property.nonObject
+			count: 1
+			path: Tests/MpcSourceTest.php
+
+		-
+			message: '#^Cannot access property \$observatory on Omnilab\\Mpc\\Observation\|null\.$#'
+			identifier: property.nonObject
+			count: 1
+			path: Tests/MpcSourceTest.php
+
+		-
+			message: '#^Cannot access property \$source on Omnilab\\Model\\Property\|null\.$#'
+			identifier: property.nonObject
+			count: 1
+			path: Tests/MpcSourceTest.php
+
+		-
+			message: '#^Cannot access property \$synonyms on Omnilab\\Model\\Entity\|null\.$#'
+			identifier: property.nonObject
+			count: 3
+			path: Tests/MpcSourceTest.php
+
+		-
+			message: '#^Cannot access property \$time on Omnilab\\Mpc\\Observation\|null\.$#'
+			identifier: property.nonObject
+			count: 1
+			path: Tests/MpcSourceTest.php
+
+		-
+			message: '#^Cannot access property \$url on Omnilab\\Model\\Entity\|null\.$#'
+			identifier: property.nonObject
+			count: 1
+			path: Tests/MpcSourceTest.php
+
+		-
+			message: '#^Cannot call method identifiers\(\) on Omnilab\\Model\\Entity\|null\.$#'
+			identifier: method.nonObject
+			count: 2
+			path: Tests/MpcSourceTest.php
+
+		-
+			message: '#^Cannot call method number\(\) on Omnilab\\Model\\Property\|null\.$#'
+			identifier: method.nonObject
+			count: 4
+			path: Tests/MpcSourceTest.php
+
+		-
+			message: '#^Cannot call method property\(\) on Omnilab\\Model\\Entity\|null\.$#'
+			identifier: method.nonObject
+			count: 13
+			path: Tests/MpcSourceTest.php
+
+		-
+			message: '#^Cannot call method unit\(\) on Omnilab\\Model\\Property\|null\.$#'
+			identifier: method.nonObject
+			count: 2
+			path: Tests/MpcSourceTest.php
+
+		-
+			message: '#^Cannot call method value\(\) on Omnilab\\Model\\Entity\|null\.$#'
+			identifier: method.nonObject
+			count: 13
+			path: Tests/MpcSourceTest.php
+
+		-
+			message: '#^Match expression does not handle remaining value\: string$#'
+			identifier: match.unhandled
+			count: 1
+			path: Tests/MpcSourceTest.php
+
+		-
+			message: '#^Parameter \#1 \$json of function json_decode expects string, mixed given\.$#'
+			identifier: argument.type
+			count: 1
+			path: Tests/MpcSourceTest.php
+
+		-
+			message: '#^Parameter \#3 \$subject of function str_replace expects array\<string\>\|string, mixed given\.$#'
+			identifier: argument.type
+			count: 2
+			path: Tests/MpcSourceTest.php
+
+		-
+			message: '#^Property Omnilab\\Mpc\\Tests\\MpcSourceTest\:\:\$calls \(list\<array\{string, string, array\<mixed\>\}\>\) does not accept non\-empty\-list\<array\{string, string, mixed\}\>\.$#'
+			identifier: assign.propertyType
+			count: 1
+			path: Tests/MpcSourceTest.php

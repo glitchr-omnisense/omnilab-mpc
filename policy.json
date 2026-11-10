@@ -1,0 +1,46 @@
+{
+    "$schema": "https://github.com/glitchr-omnisense/contracts/blob/1.x/resources/usage-policy.schema.json",
+    "provider": "mpc",
+    "rateLimits": [
+        {
+            "max": 5,
+            "window": "second",
+            "scope": "application",
+            "operations": [],
+            "note": "MPC FAQ: \"Please limit queries to https://data.minorplanetcenter.net/api/ endpoints to not more than 5 requests per second\"; beyond, HTTP 429; a blocked IP is unblocked through a General Support ticket."
+        }
+    ],
+    "concurrency": null,
+    "rights": {
+        "commercial": "unknown",
+        "openSourceRequired": null,
+        "caching": {
+            "permission": "unknown",
+            "maxTtl": null
+        },
+        "storage": "unknown",
+        "redistribution": "unknown",
+        "attribution": {
+            "required": false,
+            "text": null,
+            "url": null,
+            "where": []
+        },
+        "licence": null
+    },
+    "requirements": {
+        "key": false,
+        "userAgent": {
+            "required": false,
+            "pattern": null
+        }
+    },
+    "provenance": {
+        "terms": "https://docs.minorplanetcenter.net/mpc-ops-docs/faqs/",
+        "policy": "https://docs.minorplanetcenter.net/mpc-ops-docs/faqs/",
+        "verifiedAt": "2026-11-10",
+        "declaredBy": "maintainer",
+        "contact": null,
+        "notes": "Read 2026-11-10: the MPC FAQ. \"Data from the MPC's database is made freely available to the public\"; no licence, terms of use or attribution requirement stated (the FAQ credits NASA PDCO grant 80NSSC22M0024 for funding). The API index page states no policy. Rights unknown beyond free public availability."
+    }
+}

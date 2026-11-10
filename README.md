@@ -40,10 +40,21 @@ See [docs/](docs/index.md) for what is read, how it maps, and what the MPC does 
 
 The Minor Planet Center operates under the International Astronomical Union at the Center for
 Astrophysics | Harvard & Smithsonian, funded by NASA. Its documentation hub
-(docs.minorplanetcenter.net, read on 2026-10-15) publishes no terms of use and no rate for its
-APIs; credit the Minor Planet Center as the source of the designations, orbits and observations,
+(docs.minorplanetcenter.net, read on 2026-10-15) publishes no terms of use; its FAQ states five
+requests a second for its APIs (read on 2026-11-10, `policy.json`); credit the Minor Planet Center as the source of the designations, orbits and observations,
 and keep the observers' and programs' credits that the observations carry. An object's
 observations come whole, however many (Eros: 18,679 in 1.7 MB, 5 to 15 s): ask them sparingly.
+
+## Usage policy
+
+Declared as data in [`policy.json`](policy.json) (read at https://docs.minorplanetcenter.net/mpc-ops-docs/faqs/ on 2026-11-10), and honoured on every request by the
+core: a limit reached waits when its window ends within `max_wait` seconds, else the request is not
+sent ([Usage policies](https://github.com/glitchr-omnisense/omnilab/blob/1.x/docs/policies.md)).
+
+- Limits: 5 a second.
+- Licence: not stated; commercial use: unknown.
+- Credit: not required.
+- Needs: nothing.
 
 ## Responsibility
 
