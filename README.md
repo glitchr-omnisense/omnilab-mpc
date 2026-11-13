@@ -36,6 +36,34 @@ walks between omnilab/mpc and omnilab/jpl in either direction.
 
 See [docs/](docs/index.md) for what is read, how it maps, and what the MPC does not give here.
 
+## Install and a first call
+
+```sh
+composer require omnilab/mpc
+```
+
+A real call, with no account and no key: the asteroid Eros at the Minor Planet Center. `mailto` is
+your address, sent in the User-Agent so that the service can reach you before it blocks a caller;
+the source keeps to the limits its [`policy.json`](policy.json) declares.
+
+```php
+<?php
+
+require __DIR__.'/vendor/autoload.php';
+
+use Omnilab\Mpc\MpcSourceFactory;
+
+$mpc = (new MpcSourceFactory())->create(['mailto' => 'you@example.org']);   // your address, in the User-Agent
+$eros = $mpc->entity('433');
+echo $eros->label, ': ', $eros->value('orbit_type'), ', a = ', $eros->property('semi_major_axis'), "\n";
+```
+
+Its output on 2026-11-13:
+
+```
+(433) Eros: Amor, a = 1.4582437174 ± 4.34582e-11 au
+```
+
 ## Terms of use
 
 The Minor Planet Center operates under the International Astronomical Union at the Center for
